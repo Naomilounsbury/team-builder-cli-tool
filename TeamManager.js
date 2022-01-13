@@ -5,6 +5,12 @@ class TeamManager extends Employee{
         super(name, id, email)
         this.officeNumber = parseInt(officeNumber)       
     }
+    getOfficeNumber(){
+        return this.officeNumber
+    }
+    getRole(){
+        return "Team Manager"
+    }
 
 }
 module.exports = TeamManager
