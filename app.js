@@ -1,10 +1,9 @@
 //destructuring inquirer because I'm only using prompt and so i don't need all that other stuff with inquirer, might add validation later if I feel like it
 const {prompt} = require("inquirer");
-const fs = require("fs");
-const TeamManager = require("./TeamManager");
-const Engineer = require("./Engineer");
-const Intern = require("./Intern");
-const {writeFile} = require("./utils")
+const TeamManager = require("./lib/TeamManager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const {writeFile} = require("./src/utils");
 let employeeArray = [];
 //prompt general manager questions to create a manager 
 //the last question will be "would you like to add another team member"
@@ -80,7 +79,6 @@ function createTeamManager() {
     ]).then(managerData => {
         //destructuring managerdata for funsies
         const {name, employeeId, email, officeNumber} = managerData
-        console.log("managerData", managerData)
         const newTeamManager = new TeamManager(name, employeeId, email, officeNumber);
         employeeArray.push(newTeamManager);
         addMember();

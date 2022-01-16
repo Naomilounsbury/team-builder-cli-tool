@@ -1,4 +1,4 @@
-const TeamManager = require("../TeamManager.js")
+const TeamManager = require("../lib/TeamManager.js")
 
 describe("team manager", ()=>{
     //things to test: name email employee id office number

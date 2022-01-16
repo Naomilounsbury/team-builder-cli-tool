@@ -1,4 +1,4 @@
-const Intern = require("../Intern.js")
+const Intern = require("../lib/Intern.js")
 
 describe("Intern", ()=>{
     //things to test: name email employee id office number
