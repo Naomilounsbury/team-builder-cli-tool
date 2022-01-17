@@ -55,6 +55,10 @@ function basicHtml() {
 <body> 
 <div class="container">
 <div class="row">
+<h1 class="col-12 bg-success text-center">Team</h1>
+<div class = "row row-cols-3"
+<div class="card-group">
+
 `
 }
 function createPeople(employeeArray) {
@@ -63,30 +67,30 @@ function createPeople(employeeArray) {
     return employeeArray.map((employee) => {
         //mapping the employee data and can change the variable to employee in all the other things
         const role = employee.getRole()
-        //employeeDetails is only here to define which employee is there for the switch stastement so I know which to grab
+        //employeeDetails is only here to define which employee is there for the switch statement so I know which to grab
         let employeeDetails = ""
         switch (role) {
             case "Engineer":
-                employeeDetails = `<p>Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></p>`
+                employeeDetails = `<p class="card-text">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></p>`
                 break;
             case "Intern":
-                employeeDetails = `<p>School: ${employee.getSchool()}</p>`
+                employeeDetails = `<p class="card-text">School: ${employee.getSchool()}</p>`
                 break;
             case "Team Manager":
-                employeeDetails = `<p>Phone Number: ${employee.getOfficeNumber()}</p>`
+                employeeDetails = `<p class="card-text">Phone Number: ${employee.getOfficeNumber()}</p>`
                 break
         }
-
-
         return `
 
 
-<div class="col">
-<h1>${employee.getRole()}</h1>
-<p>Name: ${employee.getName()}</p>
-<p>Employee ID: ${employee.getId()}</p>
-<p>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></p>
+<div class="card border-success mb-3" style="max-width: 15rem;">
+<div class="card-body">
+<h3 class="card-title bg-success">${employee.getRole()}</h3>
+<p class="card-text">Name: ${employee.getName()}</p>
+<p class="card-text">Employee ID: ${employee.getId()}</p>
+<p class="card-link">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></p>
 ${employeeDetails}
+</div>
 
 </div>
 
@@ -94,6 +98,7 @@ ${employeeDetails}
 }
 function finishHtml() {
     return `
+    </div>
     </div>
     </div>
     </body>

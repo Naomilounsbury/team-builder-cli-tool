@@ -4,18 +4,9 @@ const TeamManager = require("./lib/TeamManager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const {writeFile} = require("./src/utils");
+// this array is to store the data collected
 let employeeArray = [];
-//prompt general manager questions to create a manager 
-//the last question will be "would you like to add another team member"
-//this question will be a choice between engineer and intern or none
-//then once those questions are answered in the promise I'll make a switch case startment and for every case 
-//if the case is "engineer", run a function called add engineer, define these functions in the same file
-//these functions will prompt questions depending on whether an engineer or an intern is chosen addEngineer addIntern
-//if they choose none thenrun another function called createHtml and it creates the Html
-//in the function that builds the html i will reference template.js
-
-
-
+//here is my array with the generic questions
 const generic = [
     {
         type: 'input',
@@ -34,8 +25,8 @@ const generic = [
         message: 'Please enter their employee ID',
     },
 ]
-
-
+//made an addmember function to be run at the end of each creation of a person
+// I got my switch statement to run each of the functions engineer or intern on the choice of engineer or intern
 function addMember() {
 
     prompt(
@@ -62,10 +53,7 @@ function addMember() {
 
 }
 function createTeamManager() {
-    //theres a promise that is immediately returned before it even starts
-    // the function will be called and in order to get the value from this function, it has to be returned 
-    //but not at the end like a normal function, no that would be too easy, its getting returned immediately
-    //spread generic back in
+  //for the team manager all I need are to spread in the generic questions and the office number question
     console.log("Let's start by creating a team manager.")
     prompt([...generic,
 
@@ -80,7 +68,9 @@ function createTeamManager() {
         //destructuring managerdata for funsies
         const {name, employeeId, email, officeNumber} = managerData
         const newTeamManager = new TeamManager(name, employeeId, email, officeNumber);
+        //pushing it up to my array at the top
         employeeArray.push(newTeamManager);
+        //running add member to see if they want to add another member 
         addMember();
 
     })
