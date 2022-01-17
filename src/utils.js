@@ -56,7 +56,6 @@ function basicHtml() {
 <div class="container">
 <div class="row">
 <h1 class="col-12 bg-success text-center">Team</h1>
-<div class = "row row-cols-3"
 <div class="card-group">
 
 `
@@ -98,6 +97,7 @@ ${employeeDetails}
 }
 function finishHtml() {
     return `
+    
     </div>
     </div>
     </div>
